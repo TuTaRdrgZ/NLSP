@@ -4,12 +4,12 @@ This project is a C++ implementation of the **Language Server Protocol (LSP)** f
 
 ## Description
 
-The goal of this project is to create an LSP server in C++ that interacts with code editors like **VSShit** or **Neovim** to provide diagnostics and other features that improve the C development experience, following the LSP standard and using **Norminette** as the linting tool.
+The goal of this project is to create an LSP server in C++ that interacts with code editors like **Neovim** or **VSC*de** to provide diagnostics and other features that improve the C development experience, following the LSP standard and using **Norminette** as the linting tool.
 
 ## Features
 
 - **Diagnostics**: Uses Norminette to analyze C code and return warning and error messages.
-- **LSP Compatibility**: Implements basic LSP methods such as `initialize`, `textDocument/didOpen`, 'textDocument/didChange', etc.
+- **LSP Compatibility**: Implements basic LSP methods such as `initialize`, `textDocument/didOpen`, `textDocument/didChange`, etc.
 - **Editor Compatibility**: Can be integrated with editors that support LSP, such as **Neovim**, and others.
 
 ## Requirements
