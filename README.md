@@ -23,8 +23,8 @@ The goal of this project is to create an LSP server in C++ that interacts with c
 ### Cloning the repository and Building
 
 ```bash
-git clone https://github.com/yourusername/norminette-lsp-cpp.git
-cd norminette-lsp-cpp
+git clone https://github.com/TuTaRdrgZ/NLSP.git
+cd NLSP
 make
 ```
 
