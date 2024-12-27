@@ -1,15 +1,14 @@
 NAME=NLSP
 
 SRCS = main.cpp ./logger/logger.cpp ./rpc/rpc.cpp
-INCLUDES = -I./logger -I./rpc -I./norminette/ -I ./lsp/
 OBJS = $(SRCS:.cpp=.o)
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
 %.o: %.cpp
-	g++ $(CXXFLAGS) -c -o $@ $< $(INCLUDES)
+	g++ $(CXXFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
-	g++ $(CXXFLAGS) -o $(NAME) $(OBJS) $(INCLUDES)
+	g++ $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
@@ -18,5 +17,6 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm log.txt
 
 .PHONY: clean fclean
