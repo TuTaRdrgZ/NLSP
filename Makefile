@@ -3,7 +3,7 @@ NAME=NLSP
 SRCS = main.cpp ./logger/logger.cpp ./rpc/rpc.cpp
 INCLUDES = -I./logger -I./rpc -I./norminette/ -I ./lsp/
 OBJS = $(SRCS:.cpp=.o)
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
 %.o: %.cpp
 	g++ $(CXXFLAGS) -c -o $@ $< $(INCLUDES)

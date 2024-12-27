@@ -1,6 +1,5 @@
 #include "logger/logger.hpp"
 #include "lsp/initialize.hpp"
-#include "lsp/textDocumentDiagnostics.hpp"
 #include "lsp/textDocumentDidChange.hpp"
 #include "lsp/textDocumentDidOpen.hpp"
 #include "norminette/analysis.hpp"
