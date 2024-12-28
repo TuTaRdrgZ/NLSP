@@ -13,8 +13,7 @@ std::optional<std::vector<uint8_t>> readFromStdin(std::vector<uint8_t> &buffer);
 void writeResponse(Logger &log, json &response);
 
 int main() {
-  Logger log(
-      "/home/tuta/tuta/coding/randomProjects/lsp/norminette-lsp-cpp/log.txt");
+  Logger log("/tmp/NLSP-log.txt");
   log.log("Hey I started");
   std::vector<uint8_t> buffer;
   buffer.reserve(1024);
