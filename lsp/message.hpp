@@ -6,10 +6,10 @@
 struct _Request {
   std::string rpc;
   int id;
-  std::string Method;
+  std::string method;
 
   // Macro to serialize or deserialize the struct
-  NLOHMANN_DEFINE_TYPE_INTRUSIVE(_Request, rpc, id, Method);
+  NLOHMANN_DEFINE_TYPE_INTRUSIVE(_Request, rpc, id, method);
 };
 
 struct _Response {

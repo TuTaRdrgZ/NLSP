@@ -62,15 +62,11 @@ void handleMessage(Logger &log, State state, std::string &method,
                    std::vector<uint8_t> &contents) {
   log.log("received msg with method: " + method);
   if (method == "initialize") {
-
     _InitializeRequest request;
     json j = json::parse(contents);
 
-    request.params.clientInfo.name = j["params"]["clientInfo"]["name"];
-    request.params.clientInfo.version = j["params"]["clientInfo"]["version"];
     request.request.id = j["id"];
 
-    // create response
     json jsonResponse = NewInitializeResponse(request.request.id);
     writeResponse(log, jsonResponse);
 
@@ -78,8 +74,6 @@ void handleMessage(Logger &log, State state, std::string &method,
 
     _DidOpenTextDocumentNotification request;
     json j = json::parse(contents);
-
-    log.log("Contents: " + std::string(contents.begin(), contents.end()));
 
     request.params.textDocument.uri = j["params"]["textDocument"]["uri"];
     request.params.textDocument.text = j["params"]["textDocument"]["text"];
@@ -91,11 +85,11 @@ void handleMessage(Logger &log, State state, std::string &method,
 
     json diagnostics = OpenDocument(log, state, request.params.textDocument.uri,
                                     request.params.textDocument.text);
-    nlohmann::json message = {{"jsonrpc", "2.0"},
-                              {"method", "textDocument/publishDiagnostics"},
-                              {"params",
-                               {{"uri", request.params.textDocument.uri},
-                                {"diagnostics", diagnostics}}}};
+    json message = {{"jsonrpc", "2.0"},
+                    {"method", "textDocument/publishDiagnostics"},
+                    {"params",
+                     {{"uri", request.params.textDocument.uri},
+                      {"diagnostics", diagnostics}}}};
     writeResponse(log, message);
 
   } else if (method == "textDocument/didChange") {
@@ -109,7 +103,6 @@ void handleMessage(Logger &log, State state, std::string &method,
         request.params.textDocument.textDocument.uri;
 
     for (auto &change : j["params"]["contentChanges"]) {
-
       json diagnostics = UpdateDocument(
           log, state, request.params.textDocument.textDocument.uri,
           change["text"]);
@@ -121,8 +114,8 @@ void handleMessage(Logger &log, State state, std::string &method,
             {"diagnostics", diagnostics}}}};
       writeResponse(log, message);
     }
-  } else {
-    log.log("Method not found: " + method);
+  } else if (method == "shutdown") {
+    exit(0);
   }
 }
 

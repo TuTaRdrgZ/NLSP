@@ -2,43 +2,6 @@
 #define INITIALIZE_HPP
 #include "message.hpp"
 using json = nlohmann::json;
-/* #include <optional> */
-
-/* struct ClientInfo { */
-/*   std::string name; */
-/*   std::string version; */
-/**/
-/*   // Custom serialization and deserialization */
-/*   friend void to_json(nlohmann::json &j, const ClientInfo &ci) { */
-/*     j = nlohmann::json{{"name", ci.name}, {"version", ci.version}}; */
-/*   } */
-/**/
-/*   friend void from_json(const nlohmann::json &j, ClientInfo &ci) { */
-/*     j.at("name").get_to(ci.name); */
-/*     j.at("version").get_to(ci.version); */
-/*   } */
-/* }; */
-/**/
-/* struct InitializeRequestParams { */
-/*   std::optional<ClientInfo> clientInfo; */
-/**/
-/*   // Custom serialization and deserialization */
-/*   friend void to_json(nlohmann::json &j, const InitializeRequestParams &irp)
- * { */
-/*     if (irp.clientInfo) { */
-/*       j["clientInfo"] = *irp.clientInfo; */
-/*     } */
-/*   } */
-/**/
-/*   friend void from_json(const nlohmann::json &j, InitializeRequestParams
- * &irp) { */
-/*     if (j.contains("clientInfo")) { */
-/*       irp.clientInfo = j.at("clientInfo").get<ClientInfo>(); */
-/*     } else { */
-/*       irp.clientInfo = std::nullopt; */
-/*     } */
-/*   } */
-/* }; */
 
 struct _ClientInfo {
   std::string name;
@@ -103,13 +66,13 @@ inline _InitializeResponse NewInitializeResponse(int id) {
   response.response.id = id;
 
   response.result.capabilities.textDocumentSync = 1;
-  response.result.capabilities.hoverProvider = true;
-  response.result.capabilities.definitionProvider = true;
-  response.result.capabilities.codeActionProvider = true;
-  response.result.capabilities.completionProvider = nlohmann::json::object();
-  // Empty object for CompletionProvider
+  /* response.result.capabilities.hoverProvider = true; */
+  /* response.result.capabilities.definitionProvider = true; */
+  /* response.result.capabilities.codeActionProvider = true; */
+  /* response.result.capabilities.completionProvider = nlohmann::json::object();
+   */
 
-  response.result.serverInfo.name = "norminette-lsp";
+  response.result.serverInfo.name = "NLSP";
   response.result.serverInfo.version = "0.0.0.1-testing";
 
   return response;
