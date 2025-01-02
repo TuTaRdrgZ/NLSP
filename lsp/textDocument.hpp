@@ -1,7 +1,7 @@
 #ifndef TEXTDOCUMENT_HPP
 #define TEXTDOCUMENT_HPP
 
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 
 struct _TextDocumentItem {
   std::string uri;

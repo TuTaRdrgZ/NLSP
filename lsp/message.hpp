@@ -1,7 +1,7 @@
 #ifndef MESSAGE_HPP
 #define MESSAGE_HPP
 
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 
 struct _Request {
   std::string rpc;

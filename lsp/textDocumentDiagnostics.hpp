@@ -2,7 +2,7 @@
 #define TEXTDOCUMENTDIAGNOSTICS_HPP
 
 #include "message.hpp"
-#include <nlohmann/detail/macro_scope.hpp>
+#include <json.hpp>
 
 struct _Position {
   int line;

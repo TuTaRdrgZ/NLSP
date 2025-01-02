@@ -1,6 +1,6 @@
 #ifndef RPC_HPP
 #define RPC_HPP
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 #include <optional>
 
 using json = nlohmann::json;

@@ -2,7 +2,7 @@ NAME=NLSP
 
 SRCS = main.cpp ./logger/logger.cpp ./rpc/rpc.cpp
 OBJS = $(SRCS:.cpp=.o)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++17
+CXXFLAGS = -Wall -Wextra -Werror -std=c++17 -I./inc/
 
 %.o: %.cpp
 	g++ $(CXXFLAGS) -c -o $@ $<
@@ -17,6 +17,5 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-	rm log.txt
 
-.PHONY: clean fclean
+.PHONY: all clean fclean
